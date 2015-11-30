@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="HappyApp">
+<head>
+  <meta charset="UTF-8">
+  <title>HappyApp</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="js/data.js"></script>
+</head>
+<body>
+<h1>HAPPYAPP</h1>
+<section ng-controller="HappinessController">
+  <div ng-if="all.length != 0">
+    <div ng-repeat="day in all" >
+      DAY: {{day.day}} | I was {{day.rating}}
+    </div>
+  </div>
+  <!-- <p ng-if="all.length != 0">{{ all }}</p> -->
+    <form ng-submit="add()">
+     <label ng-repeat="rate in rating" for="{{rate}}">
+       {{rate}}
+       <input type="radio"
+              ng-model="newRating.rating"
+              ng-value="rate"
+              id="{{rate}}"
+              name="{{rate}}">
+     </label>
+
+      <input type="submit" value="SAVE MY HAPPINESS">
+    </form>
+</section>
+</body>
+</html>
