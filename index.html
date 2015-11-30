@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app = "HappyApp">
+<head>
+  <title>Happy App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script type="text/javascript" src = "app.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body ng-controller="happinessController">
+  <h1>HappyApp</h1>
+  <p>General average happiness over time, since 1986</p>
+
+    <table>
+      <tr>
+        <td ng-repeat="face in allFaces">
+          <img class="icon" ng-src = "{{ face.feeling }}">
+          </td>
+      </tr>
+
+      <tr>
+        <td ng-repeat="face in allFaces">
+          {{ face.day }}
+          </td>
+      </tr>
+
+    </table>
+
+  <div>
+    <h3>How is your happiness today?</h3>
+    <p>Click one to pick it, then save</p>
+    <form ng-submit = "addNewFace()">
+
+      <label>
+        <input type="radio" name="answer" value="img/happy.png" ng-model= "newFace.feeling"/>
+        <img class = "icon" src="img/happy.png">
+      </label>
+
+      <label>
+        <input type="radio" name="answer" value="img/neutral.png" ng-model= "newFace.feeling"/>
+        <img  class = "icon"  src="img/neutral.png">
+      </label>
+
+      <label>
+        <input type="radio" name="answer" value="img/sad.png" ng-model= "newFace.feeling"/>
+        <img  class = "icon" src="img/sad.png">
+      </label>
+
+      <input type="submit" value = "Save your happyiness">
+    </form>
+  </div>
+</body>
+</html>
