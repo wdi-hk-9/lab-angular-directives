@@ -16,46 +16,48 @@
 </head>
 <body ng-controller="HappyController">
 
-  <header>
+  <header class="conatiner text-center">
     <h1> HAPPYAP </h1>
     <h2> Generally average happinse over time, since 1986 </h2>
   </header>
 
-  <ul ng-if="allHappiness.length != 0">
-    <li ng-repeat="happy in allHappiness">
-      {{ happy.status }}
-      {{ happy.date | date:'medium'}}
-      {{ happy.icon }}
-    </li>
-  </ul>
+  <div class="container text-center well">
+    How's your happiness today?
+    Click one to pick it, then save
+    <form novalidate ng-submit="addNewHappyness()" name="myForm">
+      <label>
+        <input type="radio" ng-model="checkboxSelection" value="happy"/>
+        <img ng-src="http://icons.iconarchive.com/icons/designbolts/emoji/256/Emoji-Happy-icon.png">
+      </label>
 
+      <label>
+        <input type="radio" ng-model="checkboxSelection" value="ok"/>
+        <img ng-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnVEw3VFcWSYvLrefTIu4FT8-psRv5SCCeegLAhX2ueWy8SutUfgh444B-" alt="ok">
+      </label>
 
-  How's your happiness today?
-  Click one to pick it, then save
-  <form novalidate ng-submit="addNewHappyness()">
-    <label>
-      <input type="radio" ng-model="checkboxSelection" value="happy" />
-      <img ng-src="http://icons.iconarchive.com/icons/designbolts/emoji/256/Emoji-Happy-icon.png">
-    </label>
+      <label>
+        <input type="radio" ng-model="checkboxSelection" value="sad"/>
+        <img ng-src="http://icons.iconarchive.com/icons/rokey/popo-emotions/128/too-sad-icon.png">
+      </label>
 
-    <label>
-      <input type="radio" ng-model="checkboxSelection" value="ok" />
-      <img ng-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnVEw3VFcWSYvLrefTIu4FT8-psRv5SCCeegLAhX2ueWy8SutUfgh444B-" alt="ok">
-    </label>
+      <br/>
 
-    <label>
-      <input type="radio" ng-model="checkboxSelection" value="sad" />
-      <img ng-src="http://icons.iconarchive.com/icons/rokey/popo-emotions/128/too-sad-icon.png">
-    </label>
+      <input class="btn btn-warning" type="submit" value="Save my Happiness">
+      <div ng-if="checkboxSelection">currently selected: {{checkboxSelection}}</div>
+    </form>
+  </div>
 
-    <br/>
+  <div class="container text-center well">
+    <ul ng-if="allHappiness.length != 0" class="list-unstyled">
+      <li ng-repeat="happy in allHappiness">
+        <strong> {{ happy.status }} - </strong>
+        {{ happy.date | date:'medium'}}
+      </li>
+    </ul>
+  </div>
 
-    <div ng-if="checkboxSelection">currently selected: {{checkboxSelection}}</div>
-    <input class="btn btn-warning" type="submit" value="Save my Happiness">
-  </form>
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
 </body>
 </html>
