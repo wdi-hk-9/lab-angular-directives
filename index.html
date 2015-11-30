@@ -14,8 +14,10 @@
   <p>General average happiness over time since 1986</p>
   <h4> History </h4>
   <ul>
-    <li ng-repeat='n in allEmotion track by $index' style="Display: inline">Day {{$index+1}}: {{ n }} </li>
+    <li ng-repeat='n in allEmotion track by $index' style="Display: inline">Day {{$index}}: {{ n }} </li>
   </ul>
+  <h4 ng-if="allEmotion.length > 0">Average rating: {{ getAvg() }}</h4>
+  <hr>
   <form id='add-emotion' ng-submit="addNewEmotion()" class="form form-horizontal">
     <input type="radio" value='Happy' ng-model="dailyemotion">Happy
     <input type="radio" value='OK' ng-model="dailyemotion">OK
