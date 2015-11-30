@@ -2,21 +2,30 @@ app.controller('HappinessController', HappinessController);
 
 function HappinessController($scope){
   $scope.rating = ['sad','mild','happy'];
+  $scope.displayRating ={
+    sad: ':-(',
+    mild: ':-|',
+    happy: ':-)'
+  }
+  $scope.score = {
+    sad: 1,
+    mild: 2,
+    happy: 3
+  }
 
-  // day: 1, rating: 'sad'
-  // $scope.newRating = {}
   $scope.newRating = { rating: 'mild'}
 
-
   $scope.all = [];
+  $scope.average = 0;
 
   $scope.add = function(){
-    // console.log(this.newRating)
     var newDay = {
       day: $scope.all.length + 1,
       rating: $scope.newRating.rating
     }
+    console.log('ori' +this.average)
+    $scope.average = ($scope.average*(newDay.day-1) + $scope.score[newDay.rating])/ newDay.day
+    console.log('ori' +this.average)
     $scope.all.push({day: $scope.all.length+1, rating: $scope.newRating.rating})
-    // day: 1, rating: 'sad'
   }
 }
