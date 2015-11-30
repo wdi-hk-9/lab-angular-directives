@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="happyApp">
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <script src="app.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="style.css"></script>
+
+
+
+</head>
+<body ng-controller="HappyController">
+
+  <header class="conatiner text-center">
+    <h1> HAPPYAP </h1>
+    <h2> Generally average happinse over time, since 1986 </h2>
+  </header>
+
+  <div class="container text-center well">
+    How's your happiness today?
+    Click one to pick it, then save
+    <form novalidate ng-submit="addNewHappyness()" name="myForm">
+      <label>
+        <input type="radio" ng-model="checkboxSelection" value="happy"/>
+        <img ng-src="http://icons.iconarchive.com/icons/designbolts/emoji/256/Emoji-Happy-icon.png">
+      </label>
+
+      <label>
+        <input type="radio" ng-model="checkboxSelection" value="ok"/>
+        <img ng-src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnVEw3VFcWSYvLrefTIu4FT8-psRv5SCCeegLAhX2ueWy8SutUfgh444B-" alt="ok">
+      </label>
+
+      <label>
+        <input type="radio" ng-model="checkboxSelection" value="sad"/>
+        <img ng-src="http://icons.iconarchive.com/icons/rokey/popo-emotions/128/too-sad-icon.png">
+      </label>
+
+      <br/>
+
+      <input class="btn btn-warning" type="submit" value="Save my Happiness">
+      <div ng-if="checkboxSelection">currently selected: {{checkboxSelection}}</div>
+    </form>
+  </div>
+
+  <div class="container text-center well">
+    <ul ng-if="allHappiness.length != 0" class="list-unstyled">
+      <li ng-repeat="happy in allHappiness">
+        <strong> {{ happy.status }} - </strong>
+        {{ happy.date | date:'medium'}}
+      </li>
+    </ul>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+</body>
+</html>
