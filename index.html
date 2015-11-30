@@ -20,8 +20,10 @@
       color:white;
       padding:10px 20px;
       border:none;
-      font-weight:bold;
+      border-radius:5px;
       margin-top:50px;
+      font-size:15px;
+      letter-spacing: 1px;
     }
     input[type=radio]{
       -webkit-appearance:none;
@@ -63,14 +65,14 @@
       border:3px solid black;
       padding:50px;
       margin:50px auto;
-      width:70%;
+      width:50%;
+      border-radius:5px;
     }
   </style>
 </head>
 <body>
 <h1>HAPPYAPP</h1>
 <section ng-controller="HappinessController">
-<p>Average: {{average}}</p>
   <div ng-if="all.length != 0" class="day">
     <div ng-repeat="day in all" class="oneDay">
       <div class="emotion">{{displayRating[day.rating]}}</div><div class="circle">{{day.day}}</div>
@@ -78,6 +80,7 @@
   </div>
   <div class="question">
     <h2>How's your happiness today?</h2>
+    <p>Your average happiness: {{average}} </p>
     <p>Click one to pick it. then save.</p>
     <form ng-submit="add()">
      <label ng-repeat="rate in rating" for="{{rate}}" class="label-selector">
@@ -88,7 +91,7 @@
               id="{{rate}}"
               name="{{rate}}">
      </label>
-     <br/><input type="submit" value="SAVE MY HAPPINESS">
+     <br/><input type="submit" value="Save My Happiness">
     </form>
   </div>
 </section>

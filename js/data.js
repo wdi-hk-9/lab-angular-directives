@@ -23,9 +23,7 @@ function HappinessController($scope){
       day: $scope.all.length + 1,
       rating: $scope.newRating.rating
     }
-    console.log('ori' +this.average)
     $scope.average = ($scope.average*(newDay.day-1) + $scope.score[newDay.rating])/ newDay.day
-    console.log('ori' +this.average)
     $scope.all.push({day: $scope.all.length+1, rating: $scope.newRating.rating})
   }
 }
