@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="happyApp">
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="app.js"></script>
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body ng-controller="happyController">
+
+  <header>
+    <h1>HAPPYAPP</h1>
+    <h2>Generally average happiness over time, since 1986</h2>
+  </header>
+
+  <form ng-submit="addHappy()">
+    <input type="text" placeholder='Are you happy, ok, or sad..?' ng-model="newHappy.status">
+    <input type="submit" value="Save my Happiness">
+  </form>
+
+  <ul ng-if="allHappy.length > 0">
+    <li ng-repeat="happy in allHappy">
+    {{ happy.status }}
+    Day {{ $index +1 }}
+    </li>
+  </ul>
+
+
+
+</body>
+</html>
