@@ -18,13 +18,16 @@
   </ul>
   <h4 ng-if="allEmotion.length > 0">Average rating: {{ getAvg() }}</h4>
   <hr>
-  <form id='add-emotion' ng-submit="addNewEmotion()" class="form form-horizontal">
-    <input type="radio" value='Happy' ng-model="dailyemotion">Happy
-    <input type="radio" value='OK' ng-model="dailyemotion">OK
-    <input type="radio" value='Unhappy' ng-model="dailyemotion" >Unhappy
-    <br>
-    <input type="submit" value="Save My Happiness" class="btn btn-default">
-  </form>
+  <div class="container well">
+    <form id='add-emotion' ng-submit="addNewEmotion()" class="form form-horizontal">
+      <input type="radio" value='Happy' ng-model="dailyemotion"><img src="happy.png" alt="Happy">
+      <input type="radio" value='OK' ng-model="dailyemotion"><img src="ok.png" alt="OK">
+      <input type="radio" value='Unhappy' ng-model="dailyemotion" ><img src="unhappy.png" alt="Unhappy">
+      <br>
+      <br>
+      <input type="submit" value="Save My Happiness" class="btn btn-default">
+    </form>
+  </div>
   </section>
 
   </body>
