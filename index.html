@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="happyapp">
+  <head>
+    <meta charset="utf-8">
+    <title>HappyApp</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+
+<body class="text-center">
+  <section ng-controller="HappyController">
+  <h1>HAPPYAPP</h1>
+  <p>General average happiness over time since 1986</p>
+  <h4> History </h4>
+  <ul>
+    <li ng-repeat='n in allEmotion track by $index' style="Display: inline">Day {{$index+1}}: {{ n }} </li>
+  </ul>
+  <form id='add-emotion' ng-submit="addNewEmotion()" class="form form-horizontal">
+    <input type="radio" value='Happy' ng-model="dailyemotion">Happy
+    <input type="radio" value='OK' ng-model="dailyemotion">OK
+    <input type="radio" value='Unhappy' ng-model="dailyemotion" >Unhappy
+    <br>
+    <input type="submit" value="Save My Happiness" class="btn btn-default">
+  </form>
+  </section>
+
+  </body>
+ </html>
