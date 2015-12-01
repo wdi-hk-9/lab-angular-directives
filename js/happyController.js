@@ -21,5 +21,5 @@ function HappyController($scope) {
 
   $scope.addNewFace = function() {
     $scope.allFaces.push({feeling: $scope.newFace.feeling, day: dayNumber++});
-  }
+  };
 }

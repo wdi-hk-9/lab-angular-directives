@@ -3,7 +3,8 @@ body {
 }
 
 h1.title {
-  font-family: arial;
+  font-family: arial black;
+  font-size: 48px;
 }
 
 h2.subtitle {
