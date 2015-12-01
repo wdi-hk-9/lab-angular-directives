@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="happyApp">
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="app.js"></script>
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="happyController">
+
+  <header>
+    <h1>HAPPYAPP</h1>
+    <h2>Generally average happiness over time, since 1986</h2>
+  </header>
+
+<!--   <form ng-submit="addHappy()">
+    <input type="text" placeholder='Are you happy, ok, or sad..?' ng-model="newHappy.status">
+    <input type="submit" value="Save my Happiness">
+  </form> -->
+
+  <form novalidate ng-submit="addHappy()" name="myForm">
+    <label>
+      <input type="radio" ng-model="emoticonSelected" value="happy"/>
+      <img ng-src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/happy.png">
+    </label>
+
+    <label>
+      <input type="radio" ng-model="emoticonSelected" value="ok"/>
+      <img ng-src="https://d30y9cdsu7xlg0.cloudfront.net/png/3061-200.png" alt="ok">
+    </label>
+
+    <label>
+      <input type="radio" ng-model="emoticonSelected" value="sad"/>
+      <img ng-src="https://cdn2.iconfinder.com/data/icons/social-productivity-line-art-1/128/face-sad-512.png">
+    </label>
+
+    <br/>
+
+    <input type="submit" value="Save my Happiness">
+    <div ng-if="emoticonSelected">Your'e emotional state is: {{ emoticonSelected }}</div>
+    </form>
+
+    <br/>
+
+    <ul ng-if="allHappy.length != 0" >
+      <li ng-repeat="happy in allHappy">
+        <strong> {{ happy.status }} - </strong>
+        {{ happy.date | date:'medium'}}
+      </li>
+    </ul>
+
+    <br/>
+    <h3 ng-if="allHappy.length > 0">Your average rating is: {{ getAverage() }}</h4>
+
+</body>
+</html>
