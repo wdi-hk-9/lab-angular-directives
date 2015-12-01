@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="HappyApp" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happiness App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/happyController.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="HappyController">
+<h1 class="title">HAPPYAPP</h1>
+<h2 class="subtitle">Generally average happiness over time, since 1986</h2>
+
+<table class="center">
+  <tr>
+    <td ng-repeat="face in allFaces">
+      <img class="face" ng-src="{{ face.feeling }}" alt=""></td>
+  </tr>
+  <tr>
+    <td ng-repeat="face in allFaces">{{ face.day }}</td>
+  </tr>
+</table>
+
+<div class="form-section">
+  <h3>How's your happiness today?</h3>
+  <p>Click one to pick it, then save.</p>
+  <form ng-submit="addNewFace()">
+    <label>
+      <input type="radio" name="happyAns" value="img/happy.png" ng-model="newFace.feeling">
+      <img src="img/happy.png" alt="happy" class="face">
+    </label>
+    <label>
+      <input type="radio" name="happyAns" value="img/neutral.png" ng-model="newFace.feeling">
+      <img src="img/neutral.png" alt="neutral" class="face">
+    </label>
+    <label>
+      <input type="radio" name="happyAns" value="img/sad.png" ng-model="newFace.feeling">
+      <img src="img/sad.png" alt="sad" class="face">
+    </label>
+    <div class="submit-btn">
+      <input class="btn" type="submit" value="Save My Happiness">
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+<!--     <label>
+      <input type="radio" name="happyAns" value="happy" ng-model="newFace.feeling">
+      <img src="happy.png" alt="happy" class="face">
+    </label>
+    <label>
+      <input type="radio" name="happyAns" value="neutral" ng-model="newFace.feeling">
+      <img src="neutral.png" alt="neutral" class="face">
+    </label>
+    <label>
+      <input type="radio" name="happyAns" value="sad" ng-model="newFace.feeling">
+      <img src="sad.png" alt="sad" class="face">
+    </label>
+ -->
